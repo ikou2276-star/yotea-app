@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Yotea - 予定管理</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ============================= -->
+    <!-- ヘッダー -->
+    <!-- ============================= -->
+
+    <header class="header">
+
+        <div>
+
+            <div class="logo">
+                🌿 Yotea
+            </div>
+
+            <div class="tagline">
+                今日も、ひとつずつ。
+            </div>
+
+        </div>
+
+
+        <button
+            id="themeButton"
+            class="icon-button"
+            title="テーマ変更"
+        >
+            🎨
+        </button>
+
+        <!-- ナイトモード -->
+        <button
+            class="night-toggle"
+            id="nightToggle"
+        >
+            <div class="night-toggle-left">
+                <span
+                    class="night-icon"
+                    id="nightIcon"
+                >🌙</span>
+
+                <span>
+                    ナイトモード
+                </span>
+            </div>
+
+            <span
+                class="night-status"
+                id="nightStatus"
+            >OFF</span>
+        </button>
+
+    </header>
+
+
+
+    <!-- ============================= -->
+    <!-- 今日 -->
+    <!-- ============================= -->
+
+    <section class="welcome-card">
+
+        <div>
+
+            <p class="small-label">
+                TODAY
+            </p>
+
+            <h1 id="todayTitle">
+                おかえり！
+            </h1>
+
+            <p id="todayDate">
+                2026年8月16日（日）
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 今日の予定 -->
+    <!-- ============================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    🌱
+                </span>
+
+                <span>
+                    今日の予定
+                </span>
+
+            </div>
+
+            <span
+                id="todayCount"
+                class="count"
+            >
+                0件
+            </span>
+
+        </div>
+
+
+        <div
+            id="todaySchedule"
+            class="today-list"
+        >
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 達成率 -->
+    <!-- ============================= -->
+
+    <section class="card progress-card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    🎯
+                </span>
+
+                今日の達成率
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-content">
+
+            <div
+                id="todayRate"
+                class="progress-number"
+            >
+                0%
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="todayProgress"
+                    class="progress-fill"
+                >
+                </div>
+
+            </div>
+
+
+            <p
+                id="todayProgressText"
+                class="progress-text"
+            >
+                0 / 0 完了
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 今週 -->
+    <!-- ============================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    📆
+                </span>
+
+                今週の予定
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="weekSchedule"
+            class="week-list"
+        >
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 提出物カウントダウン -->
+    <!-- ============================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    📚
+                </span>
+
+                提出物
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="countdownList"
+            class="countdown-list"
+        >
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- カレンダー -->
+    <!-- ============================= -->
+
+    <section class="card calendar-card">
+
+        <div class="calendar-header">
+
+            <button
+                id="prevMonth"
+                class="month-button"
+            >
+                ←
+            </button>
+
+
+            <h2 id="monthTitle">
+                2026年8月
+            </h2>
+
+
+            <button
+                id="nextMonth"
+                class="month-button"
+            >
+                →
+            </button>
+
+        </div>
+
+
+        <div class="weekdays">
+
+            <span>日</span>
+            <span>月</span>
+            <span>火</span>
+            <span>水</span>
+            <span>木</span>
+            <span>金</span>
+            <span>土</span>
+
+        </div>
+
+
+        <div
+            id="calendar"
+            class="calendar"
+        >
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 予定追加 -->
+    <!-- ============================= -->
+
+    <section class="card add-card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    ✨
+                </span>
+
+                新しい予定
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <label>
+
+                日付
+
+                <input
+                    type="date"
+                    id="date"
+                >
+
+            </label>
+
+
+            <label>
+
+                時間
+
+                <input
+                    type="time"
+                    id="time"
+                >
+
+            </label>
+
+
+            <label class="full">
+
+                予定
+
+                <input
+                    type="text"
+                    id="task"
+                    placeholder="例：数学の課題"
+                >
+
+            </label>
+
+
+            <label>
+
+                カテゴリ
+
+                <select id="category">
+
+                    <option value="school">
+                        🏫 学校
+                    </option>
+
+                    <option value="study">
+                        📚 勉強
+                    </option>
+
+                    <option value="private">
+                        🌿 プライベート
+                    </option>
+
+                    <option value="other">
+                        📌 その他
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                優先度
+
+                <select id="priority">
+
+                    <option value="high">
+                        🔴 高
+                    </option>
+
+                    <option
+                        value="medium"
+                        selected
+                    >
+                        🟡 中
+                    </option>
+
+                    <option value="low">
+                        🟢 低
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                種類
+
+                <select id="taskType">
+
+                    <option value="normal">
+                        普通の予定
+                    </option>
+
+                    <option value="deadline">
+                        📚 提出・締切
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                繰り返し
+
+                <select id="repeat">
+
+                    <option value="none">
+                        繰り返さない
+                    </option>
+
+                    <option value="daily">
+                        毎日
+                    </option>
+
+                    <option value="weekly">
+                        毎週
+                    </option>
+
+                    <option value="monthly">
+                        毎月
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                繰り返し終了日
+
+                <input
+                    type="date"
+                    id="repeatEndDate"
+                >
+
+            </label>
+
+
+            <label class="full">
+
+                メモ
+
+                <textarea
+                    id="memo"
+                    placeholder="メモがあれば入力..."
+                ></textarea>
+
+            </label>
+
+
+            <label class="check-option full">
+
+                <input
+                    type="checkbox"
+                    id="hasCheck"
+                    checked
+                >
+
+                完了チェックを付ける
+
+            </label>
+
+
+            <button
+                id="addButton"
+                class="add-button full"
+            >
+                ＋ 予定を追加
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 検索・管理 -->
+    <!-- ============================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    🔎
+                </span>
+
+                予定を探す
+
+            </div>
+
+        </div>
+
+
+        <div class="search-area">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="予定を検索..."
+            >
+
+
+            <select id="filterCategory">
+
+                <option value="all">
+                    すべて
+                </option>
+
+                <option value="school">
+                    🏫 学校
+                </option>
+
+                <option value="study">
+                    📚 勉強
+                </option>
+
+                <option value="private">
+                    🌿 プライベート
+                </option>
+
+                <option value="other">
+                    📌 その他
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <label class="hide-completed">
+
+            <input
+                type="checkbox"
+                id="hideCompleted"
+            >
+
+            完了した予定を隠す
+
+        </label>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 統計 -->
+    <!-- ============================= -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>
+                🎯 今週の達成率
+            </span>
+
+            <strong id="weekRate">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                🔥 連続達成
+            </span>
+
+            <strong id="streak">
+                0日
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- 月間振り返り -->
+    <!-- ============================= -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    🌿
+                </span>
+
+                今月の振り返り
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="monthlyReview"
+            class="monthly-review"
+        >
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- バックアップ -->
+    <!-- ============================= -->
+
+    <section class="card settings-card">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="section-icon">
+                    ⚙️
+                </span>
+
+                データ管理
+
+            </div>
+
+        </div>
+
+
+        <div class="settings-buttons">
+
+            <button id="exportButton">
+                💾 バックアップ
+            </button>
+
+
+            <label class="file-button">
+
+                ♻️ 復元
+
+                <input
+                    type="file"
+                    id="importFile"
+                    accept=".json"
+                >
+
+            </label>
+
+
+            <button id="clearTrashButton">
+                🗑️ ゴミ箱
+            </button>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- 編集モーダル -->
+<!-- ============================= -->
+
+<div
+    id="editModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            ✏️ 予定を編集
+        </h2>
+
+
+        <label>
+
+            日付
+
+            <input
+                type="date"
+                id="editDate"
+            >
+
+        </label>
+
+
+        <label>
+
+            時間
+
+            <input
+                type="time"
+                id="editTime"
+            >
+
+        </label>
+
+
+        <label>
+
+            予定
+
+            <input
+                type="text"
+                id="editTask"
+            >
+
+        </label>
+
+
+        <label>
+
+            カテゴリ
+
+            <select id="editCategory">
+
+                <option value="school">
+                    🏫 学校
+                </option>
+
+                <option value="study">
+                    📚 勉強
+                </option>
+
+                <option value="private">
+                    🌿 プライベート
+                </option>
+
+                <option value="other">
+                    📌 その他
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            優先度
+
+            <select id="editPriority">
+
+                <option value="high">
+                    🔴 高
+                </option>
+
+                <option value="medium">
+                    🟡 中
+                </option>
+
+                <option value="low">
+                    🟢 低
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            種類
+
+            <select id="editTaskType">
+
+                <option value="normal">
+                    普通の予定
+                </option>
+
+                <option value="deadline">
+                    📚 提出・締切
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            繰り返し
+
+            <select id="editRepeat">
+
+                <option value="none">
+                    繰り返さない
+                </option>
+
+                <option value="daily">
+                    毎日
+                </option>
+
+                <option value="weekly">
+                    毎週
+                </option>
+
+                <option value="monthly">
+                    毎月
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            繰り返し終了日
+
+            <input
+                type="date"
+                id="editRepeatEndDate"
+            >
+
+        </label>
+
+
+        <label>
+
+            メモ
+
+            <textarea
+                id="editMemo"
+            ></textarea>
+
+        </label>
+
+
+        <label class="check-option">
+
+            <input
+                type="checkbox"
+                id="editHasCheck"
+            >
+
+            完了チェックを付ける
+
+        </label>
+
+
+        <div class="modal-buttons">
+
+            <button id="cancelEdit">
+                キャンセル
+            </button>
+
+            <button
+                id="saveEdit"
+                class="save-button"
+            >
+                保存
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- ゴミ箱 -->
+<!-- ============================= -->
+
+<div
+    id="trashModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            🗑️ ゴミ箱
+        </h2>
+
+
+        <div
+            id="trashList"
+            class="trash-list"
+        >
+        </div>
+
+
+        <button id="closeTrash">
+            閉じる
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- テーマ -->
+<!-- ============================= -->
+
+<div
+    id="themeModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <h2>
+            🎨 テーマ
+        </h2>
+
+
+        <div class="theme-options">
+
+            <button
+                data-theme="green"
+                class="theme-option"
+            >
+                🌿 パステルグリーン
+            </button>
+
+
+            <button
+                data-theme="pink"
+                class="theme-option"
+            >
+                🌸 パステルピンク
+            </button>
+
+
+            <button
+                data-theme="blue"
+                class="theme-option"
+            >
+                🩵 パステルブルー
+            </button>
+
+
+            <button
+                data-theme="purple"
+                class="theme-option"
+            >
+                💜 パステルパープル
+            </button>
+
+
+            <button
+                data-theme="yellow"
+                class="theme-option"
+            >
+                🍋 パステルイエロー
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- 褒め演出 -->
+<!-- ============================= -->
+
+<div
+    id="celebration"
+    class="celebration"
+>
+
+    <div class="celebration-content">
+
+        <div
+            id="celebrationEmoji"
+            class="celebration-emoji"
+        >
+            🌱
+        </div>
+
+
+        <h2 id="celebrationTitle">
+            よく頑張った！
+        </h2>
+
+
+        <p id="celebrationMessage">
+            一歩前進！
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
