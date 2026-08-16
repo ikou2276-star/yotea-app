@@ -1783,3 +1783,23 @@ body.night-mode .night-toggle {
     flex-shrink: 0 !important;
   }
 }
+
+@media (max-width: 600px) {
+  .schedule-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  .schedule-buttons button {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    flex-shrink: 0 !important;
+  }
+
