@@ -1771,19 +1771,15 @@ body.night-mode .night-toggle {
     color: var(--text-light);
 }
 
-/* スマホで予定の編集・削除ボタンを見えるようにする */
 @media (max-width: 600px) {
-  .schedule-actions {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 6px;
-    width: 100%;
-    margin-top: 8px;
-  }
-
-  .schedule-actions button {
+  .edit-button,
+  .delete-button {
     display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: static !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
   }
 }
