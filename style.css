@@ -1789,7 +1789,6 @@ body.night-mode .night-toggle {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 6px !important;
-    width: 100% !important;
     max-width: 100% !important;
     overflow: visible !important;
     position: static !important;
