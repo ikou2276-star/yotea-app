@@ -1832,25 +1832,3 @@ body.night-mode .night-toggle {
   }
 }
 
-@media (max-width: 600px) {
-  .today-item {
-    overflow: hidden !important;
-  }
-
-  .schedule-top {
-    display: flex !important;
-    align-items: flex-start !important;
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .schedule-top > div {
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  .schedule-name {
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-  }
-}
