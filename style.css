@@ -1802,3 +1802,22 @@ body.night-mode .night-toggle {
     flex-shrink: 0 !important;
   }
 
+@media (max-width: 600px) {
+  .today-item {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .today-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .schedule-top {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
